@@ -51,5 +51,10 @@ public class CalculatorControllerIT {
         assertThat(result.getResponse().getContentAsString()).isEqualTo("-1");
     }
 
-
+    @Test
+    public void getRequestToApiDivideWithPathVariables18and9returns2() throws Exception {
+        String path = "/api/divide/18/9";
+        MvcResult result = mvc.perform(get(path)).andExpect(status().isOk()).andReturn();
+        assertThat(result.getResponse().getContentAsString()).isEqualTo("2");
+    }
 }

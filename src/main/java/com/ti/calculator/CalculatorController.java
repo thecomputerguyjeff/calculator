@@ -26,4 +26,8 @@ public class CalculatorController {
     }
 
 
+    @GetMapping(value = "/divide/{x}/{y}")
+    public Integer divide(@PathVariable Integer x, @PathVariable Integer y){
+        return calculatorService.divide(x,y);
+    }
 }

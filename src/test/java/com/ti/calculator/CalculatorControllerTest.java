@@ -41,6 +41,12 @@ public class CalculatorControllerTest {
         assertThat(calculatorController.add(2,3)).isEqualTo(5);
     }
 
+    @Test
+    public void divideReturnsResultThatServiceDivideReturned() throws Exception {
+        when(calculatorService.divide(any(),any())).thenReturn(5);
+        assertThat(calculatorController.divide(100,25)).isEqualTo(5);
+        verify(calculatorService).divide(100,25);
+    }
 
     @Test
     public void subtract_returnsResultServiceReturned() throws  Exception{
@@ -51,9 +57,22 @@ public class CalculatorControllerTest {
     }
 
     @Test
-    public void subtract_returnsResultServiceReturned2() throws  Exception{
+    public void subtract_returnsResultServiceReturned2() throws  Exception {
         when(calculatorService.subtract(any(), any())).thenReturn(4);
         assertThat(calculatorController.subtract(70, 80)).isEqualTo(4);
+    }
+
+    @Test
+    public void divideReturnsResultThatServiceDivideReturned2() throws Exception {
+        when(calculatorService.divide(any(), any())).thenReturn(3);
+        assertThat(calculatorController.divide(18, 6)).isEqualTo(3);
+        verify(calculatorService).divide(18, 6);
+    }
+
+    @Test
+    public void divideCallsServiceDivideWithSameParameters(){
+        when(calculatorService.divide(12,3)).thenReturn(4);
+        assertThat(calculatorController.divide(12,3)).isEqualTo(4);
     }
 
     @Test

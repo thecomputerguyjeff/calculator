@@ -13,4 +13,6 @@ public class CalculatorService {
     public Integer subtract(Integer x, Integer y){
         return x-y;
     }
+
+    public Integer divide(Integer x, Integer y) {return x/y;}
 }
