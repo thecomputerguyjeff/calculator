@@ -8,4 +8,5 @@ public class CalculatorService {
     public Integer add(Integer x, Integer y) {
         return x + y;
     }
+    public Integer divide(Integer x, Integer y) {return x/y;}
 }

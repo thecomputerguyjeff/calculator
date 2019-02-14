@@ -32,5 +32,22 @@ public class CalculatorServiceTest {
         Integer actual = calculatorService.add(2,null);
 
     }
+    @Test
+    public void divideReturns2WhenPassed6and3() throws Exception {
+        Integer actual = calculatorService.divide(6,3);
+        Integer expected = 2;
+        assertThat(actual).isEqualTo(expected);
+    }
 
+    @Test
+    public void divideReturns7When14and2arePassed() throws Exception {
+        Integer actual = calculatorService.divide(14,2);
+        Integer expected = 7;
+        assertThat(actual). isEqualTo(expected);
+    }
+    @Test(expected = NullPointerException.class)
+    public void divideReturnsErrorWhenNullPassed() throws Exception {
+        Integer actual = calculatorService.divide(2,null);
+
+    }
 }
