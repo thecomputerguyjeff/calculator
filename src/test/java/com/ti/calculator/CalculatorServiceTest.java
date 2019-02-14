@@ -49,5 +49,12 @@ public class CalculatorServiceTest {
     public void divideReturnsErrorWhenNullPassed() throws Exception {
         Integer actual = calculatorService.divide(2,null);
 
+
+    }
+    @Test(expected = java.lang.ArithmeticException.class)
+    public void divideThrowsExceptionWhenPassedZeroDivisor() throws Exception {
+        Integer actual = calculatorService.divide(2,0);
+
+
     }
 }
