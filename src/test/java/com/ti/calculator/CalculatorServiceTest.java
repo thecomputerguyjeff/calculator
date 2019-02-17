@@ -69,6 +69,13 @@ public class CalculatorServiceTest {
         Integer actual = calculatorService.subtract(1, -5);
         Integer expected = 6;
         assertThat(actual).isEqualTo(expected);
+
+    }
+    @Test(expected = java.lang.ArithmeticException.class)
+    public void divideThrowsExceptionWhenPassedZeroDivisor() throws Exception {
+        Integer actual = calculatorService.divide(2,0);
+
+
     }
 
 }
