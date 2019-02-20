@@ -23,4 +23,9 @@ public class CalculatorController {
     public Integer divide(@PathVariable Integer x, @PathVariable Integer y){
         return calculatorService.divide(x,y);
     }
+
+    @GetMapping(value = "/multiply/{x}/{y}")
+    public Integer multiply(@PathVariable Integer x, @PathVariable Integer y){
+        return calculatorService.multiply(x,y);
+    }
 }

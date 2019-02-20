@@ -57,4 +57,22 @@ public class CalculatorServiceTest {
 
 
     }
+    @Test
+    public void multiply_Returns4When2And2ArePassed()throws Exception{
+        Integer actual=calculatorService.multiply(2,2);
+        Integer expected=4;
+        assertThat(actual).isEqualTo(expected);
+    }
+    @Test
+    public void multiply_Returns6When2And3ArePassed()throws Exception{
+        Integer actual=calculatorService.multiply(2,3);
+        Integer expected=6;
+        assertThat(actual).isEqualTo(expected);
+    }
+    @Test(expected = NullPointerException.class)
+    public void multiply_ReturnsWhen2AndNullArePassed()throws Exception{
+        Integer actual=calculatorService.multiply(2,null);
+
+    }
+
 }

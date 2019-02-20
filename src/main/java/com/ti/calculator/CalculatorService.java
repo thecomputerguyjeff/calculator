@@ -9,4 +9,8 @@ public class CalculatorService {
         return x + y;
     }
     public Integer divide(Integer x, Integer y) {return x/y;}
+
+    public Integer multiply(Integer x, Integer y) {
+        return x*y;
+    }
 }

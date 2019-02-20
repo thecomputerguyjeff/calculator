@@ -59,5 +59,22 @@ public class CalculatorControllerTest {
         when(calculatorService.divide(12,3)).thenReturn(4);
         assertThat(calculatorController.divide(12,3)).isEqualTo(4);
     }
+    @Test
+    public void multiply_ReturnsResultThatServiceMultiplyReturned(){
+        when(calculatorService.multiply(any(),any())).thenReturn(8);
+        assertThat(calculatorController.multiply(3,5)).isEqualTo(8);
+        verify(calculatorService).multiply(3,5);
+    }
+    @Test
+    public void multiply_ReturnsResultThatServiceMultiplyReturned2(){
+        when(calculatorService.multiply(any(),any())).thenReturn(25);
+        assertThat(calculatorController.multiply(67,87)).isEqualTo(25);
+        verify(calculatorService).multiply(67,87);
+    }
+    @Test
+    public void multiply_CallsCalculatorServiceWithSameStuffItWasCalledWith(){
+        when(calculatorService.multiply(5,6)).thenReturn(30);
+        assertThat(calculatorController.multiply(5,6)).isEqualTo(30);
+    }
 
 }
