@@ -47,8 +47,28 @@ public class CalculatorServiceTest {
     }
     @Test(expected = NullPointerException.class)
     public void divideReturnsErrorWhenNullPassed() throws Exception {
-        Integer actual = calculatorService.divide(2,null);
+        Integer actual = calculatorService.divide(2, null);
+    }
 
+    @Test
+    public void subtract3and1returns2() throws Exception{
+        Integer actual = calculatorService.subtract(3, 1);
+        Integer expected = 2;
+        assertThat(actual).isEqualTo(expected);
+    }
+
+    @Test
+    public void subtract5and1returns4() throws  Exception{
+        Integer actual = calculatorService.subtract(5, 1);
+        Integer expected = 4;
+        assertThat(actual).isEqualTo(expected);
+    }
+
+    @Test
+    public void subtract1andnegative5returns6() throws Exception{
+        Integer actual = calculatorService.subtract(1, -5);
+        Integer expected = 6;
+        assertThat(actual).isEqualTo(expected);
 
     }
     @Test(expected = java.lang.ArithmeticException.class)
@@ -57,4 +77,5 @@ public class CalculatorServiceTest {
 
 
     }
+
 }

@@ -11,6 +11,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+@SuppressWarnings("MagicConstant")
 @RunWith(MockitoJUnitRunner.class)
 public class CalculatorControllerTest {
 
@@ -48,6 +49,20 @@ public class CalculatorControllerTest {
     }
 
     @Test
+    public void subtract_returnsResultServiceReturned() throws  Exception{
+
+        when(calculatorService.subtract(70, 80)).thenReturn(5);
+        assertThat(calculatorController.subtract(70, 80)).isEqualTo(5);
+        verify(calculatorService).subtract(70,80);
+    }
+
+    @Test
+    public void subtract_returnsResultServiceReturned2() throws  Exception {
+        when(calculatorService.subtract(any(), any())).thenReturn(4);
+        assertThat(calculatorController.subtract(70, 80)).isEqualTo(4);
+    }
+
+    @Test
     public void divideReturnsResultThatServiceDivideReturned2() throws Exception {
         when(calculatorService.divide(any(), any())).thenReturn(3);
         assertThat(calculatorController.divide(18, 6)).isEqualTo(3);
@@ -60,4 +75,9 @@ public class CalculatorControllerTest {
         assertThat(calculatorController.divide(12,3)).isEqualTo(4);
     }
 
+    @Test
+    public  void subtract_callsServiceWithSameStuffCalledWith() throws Exception{
+        when(calculatorService.subtract(2, 3)).thenReturn(-1);
+        assertThat(calculatorController.subtract(2, 3)).isEqualTo(-1);
+    }
 }
