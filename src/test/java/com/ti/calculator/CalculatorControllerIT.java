@@ -57,4 +57,12 @@ public class CalculatorControllerIT {
         MvcResult result = mvc.perform(get(path)).andExpect(status().isOk()).andReturn();
         assertThat(result.getResponse().getContentAsString()).isEqualTo("2");
     }
+
+    @Test
+    public void getRequestToApiMultiplyWithPathVariables4And3Returns12() throws Exception{
+        String path="/api/multiply/4/3";
+        MvcResult result=mvc.perform(get(path)).andExpect(status().isOk()).andReturn();
+        assertThat(result.getResponse().getContentAsString()).isEqualTo("12");
+    }
+
 }

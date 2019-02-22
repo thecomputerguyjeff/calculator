@@ -16,7 +16,7 @@ public class CalculatorService implements CalculatorInterface{
 
     public Integer divide(Integer x, Integer y) {return x/y;}
 
-    public Integer multiply(Integer x, Integer y){
-        return null;
+    public Integer multiply(Integer x, Integer y) {
+        return x*y;
     }
 }
