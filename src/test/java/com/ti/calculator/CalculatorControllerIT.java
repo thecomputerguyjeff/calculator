@@ -41,8 +41,14 @@ public class CalculatorControllerIT {
         MvcResult result = mvc.perform(get(path)).andExpect(status().isOk()).andReturn();
 
         assertThat(result.getResponse().getContentAsString()).isEqualTo("3");
+    }
 
+    @Test
+    public void getRequestToapiSubractWithVariables4and5returnsnegative1() throws Exception{
+        String path = "/api/subtract/4/5";
+        MvcResult result = mvc.perform(get(path)).andExpect(status().isOk()).andReturn();
 
+        assertThat(result.getResponse().getContentAsString()).isEqualTo("-1");
     }
 
     @Test
