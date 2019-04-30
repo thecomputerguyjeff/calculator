@@ -21,6 +21,9 @@ public class CalculatorController {
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.set(HttpHeaders.ACCESS_CONTROL_ALLOW_ORIGIN, "*");
         httpHeaders.set(HttpHeaders.CONTENT_TYPE, "application/json");
+        httpHeaders.set("Access-Control-Allow-Origin","*");
+        httpHeaders.set("Access-Control-Allow-Methods","GET");
+        httpHeaders.set("Access-Control-Allow-Headers","application/json");
         return ResponseEntity.ok().headers(httpHeaders).body("{\"value\": " + calculatorService.add(x,y) +"}");
     }
 
