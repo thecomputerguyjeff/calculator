@@ -20,7 +20,7 @@ public class CalculatorController {
     public Object add(@PathVariable Integer x, @PathVariable Integer y) {
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.set(HttpHeaders.ACCESS_CONTROL_ALLOW_ORIGIN, "*");
-        return ResponseEntity.ok().headers(httpHeaders).body(calculatorService.add(x,y));
+        return ResponseEntity.ok().headers(httpHeaders).body("{\"value\": " + calculatorService.add(x,y) +"}");
     }
 
     @GetMapping(value = "/subtract/{x}/{y}")
