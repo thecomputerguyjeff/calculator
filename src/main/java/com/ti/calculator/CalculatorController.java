@@ -4,12 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.MultiValueMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api")
 public class CalculatorController {
 
@@ -18,13 +16,7 @@ public class CalculatorController {
 
     @GetMapping(value = "/add/{x}/{y}")
     public Object add(@PathVariable Integer x, @PathVariable Integer y) {
-        HttpHeaders httpHeaders = new HttpHeaders();
-        httpHeaders.set(HttpHeaders.ACCESS_CONTROL_ALLOW_ORIGIN, "*");
-        httpHeaders.set(HttpHeaders.CONTENT_TYPE, "application/json");
-        httpHeaders.set("Access-Control-Allow-Origin","*");
-        httpHeaders.set("Access-Control-Allow-Methods","GET");
-        httpHeaders.set("Access-Control-Allow-Headers","application/json");
-        return ResponseEntity.ok().headers(httpHeaders).body("{\"value\": " + calculatorService.add(x,y) +"}");
+        return ResponseEntity.ok().body("{\"value\": " + calculatorService.add(x,y) +"}");
     }
 
     @GetMapping(value = "/subtract/{x}/{y}")
